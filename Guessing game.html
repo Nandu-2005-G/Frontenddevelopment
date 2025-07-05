@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Number Project</title>
+</head>
+<body>
+    <h1>Guess the number from 1 to 10</h1>
+    <input id="guessnumber" type="number" />
+    <button onclick="check()">Check</button>
+    <p id="result">You are Wrong/Right</p>
+    <p id="score">Score: 10</p>
+
+    <script>
+        let totalScore = 10;
+        const guessNumberInput = document.querySelector("#guessnumber");
+        const result = document.querySelector("#result");
+        const score = document.querySelector("#score");
+
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+        function check() {
+            const enteredNumber = Number(guessNumberInput.value);
+            
+            if (enteredNumber === randomNumber) {
+                result.textContent = "Right!";
+                alert("You Won!");
+            } else {
+                totalScore -= 1;
+                score.textContent = "Score: " + totalScore;
+                result.textContent = "Wrong!";
+            }
+        }
+    </script>
+</body>
+</html>
